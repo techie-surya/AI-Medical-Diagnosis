@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>AI Medical Diagnosis Assistant</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>AI Medical Diagnosis Assistant</h1>
+      <p class="subtitle">
+        Select the symptoms you are experiencing to get a possible health
+        condition.
+      </p>
+
+      <!-- <h3>Select a major symptom</h3>
+
+      <div class="major-symptoms">
+        <button
+          type="button"
+          class="major-btn"
+          onclick="showMinorSymptoms('fever')"
+        >
+          Fever
+        </button>
+        <button
+          type="button"
+          class="major-btn"
+          onclick="showMinorSymptoms('headache')"
+        >
+          Headache
+        </button>
+        <button
+          type="button"
+          class="major-btn"
+          onclick="showMinorSymptoms('cough')"
+        >
+          Cough & Cold
+        </button>
+        <button
+          type="button"
+          class="major-btn"
+          onclick="showMinorSymptoms('stomach')"
+        >
+          Stomach Issues
+        </button>
+        <button
+          type="button"
+          class="major-btn"
+          onclick="showMinorSymptoms('skin')"
+        >
+          Skin Problems
+        </button>
+      </div>
+
+      <p id="instruction">Select related symptoms below:</p> -->
+
+      <form method="POST">
+        <!-- ========================= -->
+        <!-- MAJOR SYMPTOMS SECTION -->
+        <!-- ========================= -->
+        <h3>Select a major symptom</h3>
+
+        <div class="major-symptoms">
+          <button
+            type="button"
+            class="major-btn"
+            onclick="showMinorSymptoms('fever')"
+          >
+            Fever
+          </button>
+
+          <button
+            type="button"
+            class="major-btn"
+            onclick="showMinorSymptoms('headache')"
+          >
+            Headache
+          </button>
+
+          <button
+            type="button"
+            class="major-btn"
+            onclick="showMinorSymptoms('cough')"
+          >
+            Cough & Cold
+          </button>
+
+          <button
+            type="button"
+            class="major-btn"
+            onclick="showMinorSymptoms('stomach')"
+          >
+            Stomach Issues
+          </button>
+
+          <button
+            type="button"
+            class="major-btn"
+            onclick="showMinorSymptoms('skin')"
+          >
+            Skin Problems
+          </button>
+        </div>
+
+        <!-- ========================= -->
+        <!-- MINOR SYMPTOMS SECTION -->
+        <!-- (EMPTY INITIALLY) -->
+        <!-- ========================= -->
+        <h3>Select related symptoms</h3>
+
+        <div class="symptoms-box" id="minorSymptoms">
+          <!-- Minor symptoms will be added here by JavaScript -->
+        </div>
+
+        <!-- ========================= -->
+        <!-- HIDDEN INPUT -->
+        <!-- (USED TO SEND DATA TO FLASK) -->
+        <!-- ========================= -->
+        <input type="hidden" name="symptoms" id="selectedSymptoms" />
+
+        <!-- ========================= -->
+        <!-- SUBMIT BUTTON -->
+        <!-- ========================= -->
+        <button type="submit">Check Possible Condition</button>
+      </form>
+
+      {% if prediction %}
+      <div class="result">
+        <h2>Possible Condition</h2>
+        <p class="disease">{{ prediction }}</p>
+
+        <p class="advice">
+          This result is based on common symptom patterns. If symptoms persist
+          or worsen, please consult a medical professional.
+        </p>
+      </div>
+      {% endif %}
+
+      <div class="disclaimer">
+        ⚠️ Disclaimer: This tool is for awareness and educational purposes only.
+        It does not replace professional medical advice or diagnosis.
+      </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>
