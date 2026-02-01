@@ -16,48 +16,6 @@
         condition.
       </p>
 
-      <!-- <h3>Select a major symptom</h3>
-
-      <div class="major-symptoms">
-        <button
-          type="button"
-          class="major-btn"
-          onclick="showMinorSymptoms('fever')"
-        >
-          Fever
-        </button>
-        <button
-          type="button"
-          class="major-btn"
-          onclick="showMinorSymptoms('headache')"
-        >
-          Headache
-        </button>
-        <button
-          type="button"
-          class="major-btn"
-          onclick="showMinorSymptoms('cough')"
-        >
-          Cough & Cold
-        </button>
-        <button
-          type="button"
-          class="major-btn"
-          onclick="showMinorSymptoms('stomach')"
-        >
-          Stomach Issues
-        </button>
-        <button
-          type="button"
-          class="major-btn"
-          onclick="showMinorSymptoms('skin')"
-        >
-          Skin Problems
-        </button>
-      </div>
-
-      <p id="instruction">Select related symptoms below:</p> -->
-
       <form method="POST">
         <!-- ========================= -->
         <!-- MAJOR SYMPTOMS SECTION -->
@@ -129,13 +87,15 @@
       </form>
 
       {% if prediction %}
-      <div class="result">
+      <div class="result-box">
         <h2>Possible Condition</h2>
-        <p class="disease">{{ prediction }}</p>
+        <p class="disease-name">{{ prediction }}</p>
+
+        <p class="explanation">{{ explanation }}</p>
 
         <p class="advice">
-          This result is based on common symptom patterns. If symptoms persist
-          or worsen, please consult a medical professional.
+          <strong>When to consult a doctor:</strong><br />
+          {{ advice }}
         </p>
       </div>
       {% endif %}

@@ -108,3 +108,27 @@ button:hover {
 .major-btn:hover {
     background-color: #27ae60;
 }
+
+.result-box {
+    margin-top: 30px;
+    padding: 25px;
+    background: #f9fbfd;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.08);
+}
+
+.disease-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.explanation {
+    margin-top: 15px;
+    color: #333;
+}
+
+.advice {
+    margin-top: 15px;
+    color: #444;
+}
